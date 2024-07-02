@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Restaurant_AP_Project.Control.CustomerOrderingFoodControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="1060" d:DesignWidth="1550" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--RestaurantPanel-->
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <ListBox>
+                <ListBox Height="150">Hello</ListBox>
+                <ListBox Height="150">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+                <ListBox Height="80">Hello</ListBox>
+            </ListBox>
+        </ScrollViewer>
+
+        <!--FilterPanel-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold">استان</TextBlock>
+                <ComboBox>
+                    <ComboBoxItem>همه استان ها</ComboBoxItem>
+                    <ComboBoxItem>یزد</ComboBoxItem>
+                    <ComboBoxItem>نهران</ComboBoxItem>
+                    <ComboBoxItem>اصفهان</ComboBoxItem>
+                    <ComboBoxItem>کاشان</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold">نوع سفارش</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <CheckBox Margin="25">معمولی</CheckBox>
+                    <CheckBox Margin="25">توزیع غذا</CheckBox>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold">نوع سفارش</TextBlock>
+                <StackPanel HorizontalAlignment="Left">
+                    <RadioButton>4.5 - 5</RadioButton>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
