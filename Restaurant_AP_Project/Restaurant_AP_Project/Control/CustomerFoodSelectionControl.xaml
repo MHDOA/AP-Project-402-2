@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Restaurant_AP_Project.Control.CustomerFoodSelectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
+             mc:Ignorable="d" d:DesignHeight="1060" d:DesignWidth="1550" Background="White">
+    <Grid x:Name="grdMain">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <ListBox Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalContentAlignment="Stretch">
+                
+                <local:URestaurantFoodItemControl
+                    FoodInventory="5"
+                    FoodNameText="کباب زنجان"
+                    FoodPrice="125"
+                    FoodRawMaterial="گوشت گوسفندی، پیاز"
+                    FoodPictureAddress="/Asset/Element/Avatar.png"
+                    FoodRate="4.56" Loaded="URestaurantFoodItemControl_Loaded"
+                    btnOrderClick="btnOrderClick"/>
+            </ListBox>
+
+            <Button Click="btnBack" Margin="15" Height="40" Width="80" Background="#E349CE" VerticalAlignment="Center" HorizontalAlignment="Left">برگشت</Button>
+        </Grid>
+    </Grid>       
+
+</UserControl>
