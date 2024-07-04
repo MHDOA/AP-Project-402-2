@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Restaurant_AP_Project.Control.RegisterRestaurant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="1060" d:DesignWidth="1550">
+    <Grid Background="#f0f0f0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20">
+            <TextBlock Text="ثبت رستوران" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="White" BorderBrush="#ccc" BorderThickness="1" Margin="20">
+            <StackPanel Margin="10">
+                <TextBlock Text="Restaurant Name:" FontWeight="Bold"/>
+                <TextBox x:Name="txtRestaurantName" Margin="0 5" 
+                         FontSize="14"/>
+
+                <TextBlock Text="Password:" FontWeight="Bold" Margin="0 10 0 0"/>
+                <TextBox x:Name="txtPassword" Margin="0 5" 
+         FontSize="14"/>
+
+                <TextBlock Text="Confirm Password:" FontWeight="Bold" Margin="0 10 0 0"/>
+                <TextBox x:Name="txtPasswordRepeat" Margin="0 5" 
+         FontSize="14"/>
+            </StackPanel>
+        </Border>
+
+        <Button Grid.Row="2" x:Name="btnRegister" Content="ثبت رستوران" Click="btnRegister_Click" HorizontalAlignment="Center"
+                Width="150" Background="BlueViolet" BorderThickness="0" Padding="12" Margin="0,20,0,20"/>
+    </Grid>
+</UserControl>
