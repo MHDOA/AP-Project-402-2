@@ -1,12 +1,12 @@
-﻿<Window x:Class="restaurent.Admin"
+﻿<Window x:Class="Restaurant_AP_Project.Veiw.Admin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:restaurent"
+        xmlns:local="clr-namespace:Restaurant_AP_Project.Veiw"
         mc:Ignorable="d"
-        Title="AAdminPage" Height="1080" Width="1920"
-        WindowStartupLocation="AdminPage" WindowState="Maximized">
+        Title="AAdminPage" Height="1080" Width="1920">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -48,6 +48,7 @@
 
                 </StackPanel>
             </ListBoxItem>
+
 
             <!--SearchingRestaurantItem-->
             <ListBoxItem PreviewMouseLeftButtonDown="SearchingRestaurantClick">
