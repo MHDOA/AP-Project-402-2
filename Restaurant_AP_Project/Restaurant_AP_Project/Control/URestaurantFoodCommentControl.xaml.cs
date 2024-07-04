@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,9 +46,9 @@ namespace Restaurant_AP_Project.Control
 
         public Visibility btnEditVisibility
         {
-            get { return btnEditComment.Visibility; }
-            set { btnEditComment.Visibility = value;
-                btnDeleteComment.Visibility = value;
+            get { return edit.Visibility; }
+            set { edit.Visibility = value;
+                delete.Visibility = value;
             }
         }
 
@@ -56,15 +58,53 @@ namespace Restaurant_AP_Project.Control
             set { lblEdited.Visibility = value; }
         }
 
-        public event RoutedEventHandler btnEditCommentClick
+        public float Rate
         {
-            add { btnEditComment.Click += value; }
-            remove { btnEditComment.Click -= value; }
+            set { uinfoRate.BoxText = value.ToString("0.00"); }
+        }
+
+        private EventHandler<RoutedEventArgs> btnDeleteClicked;
+
+        public event EventHandler<RoutedEventArgs> btnDeleteClick
+        {
+            add { btnDeleteClicked = value; }
+            remove { btnDeleteClicked = value; }
+        }
+
+        private EventHandler<RoutedEventArgs> btnEditClicked;
+
+        public event EventHandler<RoutedEventArgs> btnEditClick
+        {
+            add { btnEditClicked = value; }
+            remove { btnEditClicked = value; }
+        }
+
+        private EventHandler<RoutedEventArgs> btnAnswerClicked;
+
+        public event EventHandler<RoutedEventArgs> btnAnswerClick
+        {
+            add { btnAnswerClicked = value; }
+            remove { btnAnswerClicked = value; }
         }
 
         public URestaurantFoodCommentControl()
         {
             InitializeComponent();
+        }
+
+        private void btnAnsewerClicked(object sender, RoutedEventArgs e)
+        {
+            btnAnswerClicked?.Invoke(this, e);
+        }
+
+        private void btnEditComment(object sender, RoutedEventArgs e)
+        {
+            btnEditClicked?.Invoke(this, e);
+        }
+
+        private void btnDeleteComment(object sender, RoutedEventArgs e)
+        {
+            btnDeleteClicked?.Invoke(this, e);
         }
     }
 }
