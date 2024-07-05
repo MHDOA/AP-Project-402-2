@@ -22,26 +22,26 @@ namespace Restaurant_AP_Project.Control
     {
         public string UserName
         {
-            get { return txtUserName.Text; }
-            set { txtUserName.Text = value; }
+            get { return txtUserNameValue.Text; }
+            set { txtUserNameValue.Text = value; }
         }
 
         public string ComplaintTitle
         {
-            get { return txtComplaintTitle.Text; }
-            set { txtComplaintTitle.Text = value; }
+            get { return txtComplaintTitleValue.Text; }
+            set { txtComplaintTitleValue.Text = value; }
         }
 
         public string Restaurant
         {
-            get { return txtRestaurant.Text; }
-            set { txtRestaurant.Text = value; }
+            get { return txtRestaurantValue.Text; }
+            set { txtRestaurantValue.Text = value; }
         }
 
         public string Description
         {
-            get { return txtDescription.Text; }
-            set { txtDescription.Text = value; }
+            get { return txtDescriptionValue.Text; }
+            set { txtDescriptionValue.Text = value; }
         }
 
         private bool _isAnswered;
@@ -51,7 +51,8 @@ namespace Restaurant_AP_Project.Control
             set
             {
                 _isAnswered = value;
-                txtIsAnswered.Text = _isAnswered ? "برسی شده" : "برسی نشده";
+                string answer = _isAnswered ? "برسی شده" : "برسی نشده";
+                txtIsAnsweredValue.Text = answer;
             }
         }
 
@@ -60,4 +61,5 @@ namespace Restaurant_AP_Project.Control
             InitializeComponent();
         }
     }
+
 }

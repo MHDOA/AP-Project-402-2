@@ -5,8 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="150" d:DesignWidth="1200">
+    <Border BorderBrush="#ccc" BorderThickness="1" Margin="10" Padding="10" Background="White" HorizontalAlignment="Stretch">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" FontWeight="Bold" FontSize="15" Text=": عنوان شکایت" HorizontalAlignment="Right" TextAlignment="Right" Width="930"/>
+            <TextBlock x:Name="txtComplaintTitleValue" Grid.Row="1" Grid.Column="0" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left"/>
             
-    </Grid>
+            <TextBlock Grid.Row="1" Grid.Column="1" FontWeight="Bold" FontSize="14" Text=": نام کاربری شاکی" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtUserNameValue" Grid.Row="0" Grid.Column="0" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="1" FontWeight="Bold" FontSize="14" Text=": رستوران" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtRestaurantValue" Grid.Row="2" Grid.Column="0" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="1" FontWeight="Bold" FontSize="12" Text=": توضیح" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtDescriptionValue" Grid.Row="3" Grid.Column="0" FontSize="12" TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="1" FontWeight="Bold" FontSize="12" Text=": وضعیت برسی" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtIsAnsweredValue" Grid.Row="4" Grid.Column="0" FontSize="12" HorizontalAlignment="Left" TextAlignment="Left"/>
+        </Grid>
+    </Border>
 </UserControl>
