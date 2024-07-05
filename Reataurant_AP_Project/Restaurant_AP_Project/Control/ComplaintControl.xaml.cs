@@ -20,72 +20,44 @@ namespace Restaurant_AP_Project.Control
     /// </summary>
     public partial class ComplaintControl : UserControl
     {
-        public static readonly DependencyProperty UsernameProperty =
-            DependencyProperty.Register("Username", typeof(string), typeof(ComplaintControl), new PropertyMetadata(string.Empty, OnPropertyChanged));
-
-        public static readonly DependencyProperty RestaurantNameProperty =
-            DependencyProperty.Register("RestaurantName", typeof(string), typeof(ComplaintControl), new PropertyMetadata(string.Empty, OnPropertyChanged));
-
-        public static readonly DependencyProperty DateTimeProperty =
-            DependencyProperty.Register("DateTime", typeof(DateTime), typeof(ComplaintControl), new PropertyMetadata(DateTime.MinValue, OnPropertyChanged));
-
-        public static readonly DependencyProperty TitleProperty =
-            DependencyProperty.Register("Title", typeof(string), typeof(ComplaintControl), new PropertyMetadata(string.Empty, OnPropertyChanged));
-
-        public static readonly DependencyProperty AnsweredProperty =
-            DependencyProperty.Register("Answered", typeof(bool), typeof(ComplaintControl), new PropertyMetadata(false, OnPropertyChanged));
-
-        public string Username
+        public string UserName
         {
-            get { return (string)GetValue(UsernameProperty); }
-            set { SetValue(UsernameProperty, value); }
+            get { return txtUserName.Text; }
+            set { txtUserName.Text = value; }
         }
 
-        public string RestaurantName
+        public string ComplaintTitle
         {
-            get { return (string)GetValue(RestaurantNameProperty); }
-            set { SetValue(RestaurantNameProperty, value); }
+            get { return txtComplaintTitle.Text; }
+            set { txtComplaintTitle.Text = value; }
         }
 
-        public DateTime DateTime
+        public string Restaurant
         {
-            get { return (DateTime)GetValue(DateTimeProperty); }
-            set { SetValue(DateTimeProperty, value); }
+            get { return txtRestaurant.Text; }
+            set { txtRestaurant.Text = value; }
         }
 
-        public string Title
+        public string Description
         {
-            get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
+            get { return txtDescription.Text; }
+            set { txtDescription.Text = value; }
         }
 
-        public bool Answered
+        private bool _isAnswered;
+        public bool IsAnswered
         {
-            get { return (bool)GetValue(AnsweredProperty); }
-            set { SetValue(AnsweredProperty, value); }
+            get { return _isAnswered; }
+            set
+            {
+                _isAnswered = value;
+                txtIsAnswered.Text = _isAnswered ? "برسی شده" : "برسی نشده";
+            }
         }
 
         public ComplaintControl()
         {
             InitializeComponent();
-        }
-
-        private static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var control = d as ComplaintControl;
-            control.UpdateBindings();
-        }
-
-        private void UpdateBindings()
-        {
-            if (txtUsername != null)
-            {
-                txtUsername.Text = Username;
-                txtRestaurantName.Text = RestaurantName;
-                txtDateTime.Text = DateTime.ToString("yyyy-MM-dd HH:mm:ss");
-                txtTitle.Text = Title;
-                chkAnswered.IsChecked = Answered;
-            }
         }
     }
 }

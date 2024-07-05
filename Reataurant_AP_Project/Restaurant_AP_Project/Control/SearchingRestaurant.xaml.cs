@@ -25,7 +25,7 @@ namespace Restaurant_AP_Project.Control
             InitializeComponent();
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private void btnSearchClick(object sender, RoutedEventArgs e)
         {
 
         }
