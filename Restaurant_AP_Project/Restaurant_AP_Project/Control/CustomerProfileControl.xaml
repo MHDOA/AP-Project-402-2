@@ -30,36 +30,39 @@
         <TextBlock FontSize="19" FontWeight="Bold" Grid.Column="1" Text="اطلاعات عمومی" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         
         <!--Name-->
-        <local:UInformationBox Grid.Row="1" Max_Length="20" Grid.Column="2" BlockText="نام" BoxText="محمدعلی"></local:UInformationBox>
+        <local:UInformationBox x:Name="uinfoName" Grid.Row="1" Max_Length="20" Grid.Column="2" BlockText="نام"></local:UInformationBox>
         <!--LastName-->
-        <local:UInformationBox Grid.Row="1" Max_Length="35" Grid.Column="1" BlockText="نام خانوادگی" BoxText="احمدیان احمدآبادی"></local:UInformationBox>
+        <local:UInformationBox x:Name="uinfoLastName" Grid.Row="1" Max_Length="35" Grid.Column="1" BlockText="نام خانوادگی"></local:UInformationBox>
         <!--PhoneNumber-->
-        <local:UInformationBox Grid.Row="1" Max_Length="11" Grid.Column="0" BlockText="شماره همراه" BoxText="09135363582"></local:UInformationBox>
+        <local:UInformationBox x:Name="uinfoPhone" Grid.Row="1" Max_Length="11" Grid.Column="0" BlockText="شماره همراه"></local:UInformationBox>
 
         <!--UserName-->
-        <local:UInformationBox Max_Length="10" Grid.Row="2"  Grid.Column="2" BlockText="نام کابری" BoxText="mhdoa"></local:UInformationBox>
+        <local:UInformationBox x:Name="uinfoUserName" Max_Length="10" Grid.Row="2"  Grid.Column="2" BlockText="نام کابری"></local:UInformationBox>
         <!--Email-->
         <StackPanel HorizontalAlignment="Right" Grid.Row="2"  Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
             <Button Click="btnEmailChange" Width="60" Background="BlueViolet" Margin="0 0 10 0">ویرایش</Button>
-            <local:UInformationBox x:Name="txtEmail" Max_Length="35" BlockText="ایمیل" BoxText="mohammadali4a@gmail.com"></local:UInformationBox>
+            <local:UInformationBox x:Name="uinfoEmail" BlockText="ایمیل"></local:UInformationBox>
         </StackPanel>
         <!--Gender-->
         <StackPanel HorizontalAlignment="Right" Grid.Row="2"  Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
             <Button Click="btnGenderChange" Width="60" Background="BlueViolet" Margin="0 0 10 0">ویرایش</Button>
-            <local:UInformationBox x:Name="txtGender" Max_Length="3" BlockText="جنسیت" BoxText="مرد"></local:UInformationBox>
+            <ComboBox x:Name="cmbGender" FontSize="14" Width="60" IsEnabled="False" SelectionChanged="GenderChange" SelectedIndex="0">
+                <ComboBoxItem>آقا</ComboBoxItem>
+                <ComboBoxItem>خانم</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
 
         <!--Address-->
         <StackPanel Grid.ColumnSpan="3" HorizontalAlignment="Right" Grid.Row="4"  Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
             <Button Click="btnAddressChange" Width="60" Background="BlueViolet" Margin="0 0 10 0">ویرایش</Button>
-            <local:UInformationBox x:Name="txtAddress" Max_Length="120" BlockText="نشانی" BoxText="تهران، میدان شهدا، خیابان قدس، کوچه فجر، پلاک 313" ></local:UInformationBox>
+            <local:UInformationBox x:Name="uinfoAddress" Max_Length="120" BlockText="نشانی"></local:UInformationBox>
         </StackPanel>
         
         <!--SpecialService-->
         <TextBlock Grid.Column="1" Grid.Row="5" Text="سرویس ویژه" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17" FontWeight="Bold"/>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6">
             <Button Click="btnSpecialServiceUpgrade" Width="60" Background="BlueViolet" Margin="0 0 10 0">ارتقا</Button>
-            <ComboBox IsEnabled="False" x:Name="cmbService" Width="120" FontFamily="Vazir" FontSize="14">
+            <ComboBox IsEnabled="False" SelectionChanged="SpecialServiceChange" x:Name="cmbService" Width="120" FontFamily="Vazir" FontSize="14" SelectedIndex="0">
                 <ComboBoxItem x:Name="cmbiNoService">بدون سرویس</ComboBoxItem>
                 <ComboBoxItem x:Name="cmbiGoldenService">سرویس طلایی</ComboBoxItem>
                 <ComboBoxItem x:Name="cmbiSilverService">سرویس نقره ای</ComboBoxItem>

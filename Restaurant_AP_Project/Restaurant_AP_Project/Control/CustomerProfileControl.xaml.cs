@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant_AP_Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,59 +21,80 @@ namespace Restaurant_AP_Project.Control
     /// </summary>
     public partial class CustomerProfileControl : UserControl
     {
+        public Customer Customer { get; set; }
+
         public Color btnColor = Color.FromRgb(50, 255, 150);
-        public CustomerProfileControl()
+        public CustomerProfileControl(Customer customer)
         {
+            Customer = customer;
             InitializeComponent();
-            cmbService.SelectedIndex = 0;
+            DataContext = this;
+            this.Loaded += CustomerProfileControl_Loaded;
+        }
+
+        private void CustomerProfileControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadCustomer();
+        }
+
+        private void LoadCustomer()
+        {
+            if (Customer != null)
+            {
+                uinfoName.txtBox.Text = Customer.Name;
+                uinfoLastName.txtBox.Text = Customer.LastName;
+                uinfoPhone.txtBox.Text = Customer.Phone;
+                uinfoEmail.txtBox.Text = Customer.Email;
+                uinfoUserName.txtBox.Text = Customer.UserName;
+                uinfoAddress.txtBox.Text = Customer.Address;
+                cmbGender.SelectedIndex = (int)Customer.gender;
+                cmbService.SelectedIndex = (int)Customer.Service;
+            }
         }
 
         private void btnAddressChange(object sender, RoutedEventArgs e)
         {
-            if (!txtAddress.txtBox.IsEnabled)
+            if (!uinfoAddress.txtBox.IsEnabled)
             {
                 (sender as Button).Background = new SolidColorBrush(btnColor);
                 (sender as Button).Content = "تایید";
-                txtAddress.txtBox.IsEnabled = true;
+                uinfoAddress.txtBox.IsEnabled = true;
             }
             else
             {
+                Customer.Address = uinfoAddress.BoxText;
                 (sender as Button).Background = (Brush)FindResource("BlueVioletBrush");
                 (sender as Button).Content = "ویرایش";
-                txtAddress.txtBox.IsEnabled = false;
+                uinfoAddress.txtBox.IsEnabled = false;
             }
         }
 
         private void btnEmailChange(object sender, RoutedEventArgs e)
         {
-            
-            if (!txtEmail.txtBox.IsEnabled)
-            {
-                (sender as Button).Background = new SolidColorBrush(btnColor);
-                (sender as Button).Content = "تایید";
-                txtEmail.txtBox.IsEnabled = true;
-            }
-            else
-            {
-                (sender as Button).Background = (Brush)FindResource("BlueVioletBrush");
-                (sender as Button).Content = "ویرایش";
-                txtEmail.txtBox.IsEnabled = false;
-            }
-        }
 
-        private void btnGenderChange(object sender, RoutedEventArgs e)
-        {
-            if (!txtGender.txtBox.IsEnabled)
+            if (!uinfoEmail.txtBox.IsEnabled)
             {
                 (sender as Button).Background = new SolidColorBrush(btnColor);
                 (sender as Button).Content = "تایید";
-                txtGender.txtBox.IsEnabled = true;
+
+                uinfoEmail.txtBox.IsEnabled = true;
             }
             else
             {
-                (sender as Button).Background = (Brush)FindResource("BlueVioletBrush");
-                (sender as Button).Content = "ویرایش";
-                txtGender.txtBox.IsEnabled = false;
+                try
+                {
+                    uinfoEmail.BoxText.IsCorrectEmail();
+                    Customer.Email = uinfoEmail.BoxText;
+
+                    (sender as Button).Background = (Brush)FindResource("BlueVioletBrush");
+                    (sender as Button).Content = "ویرایش";
+                    uinfoEmail.txtBox.IsEnabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
         }
 
@@ -82,13 +104,48 @@ namespace Restaurant_AP_Project.Control
             {
                 (sender as Button).Background = new SolidColorBrush(btnColor);
                 (sender as Button).Content = "تایید";
+
                 cmbService.IsEnabled = true;
             }
             else
             {
                 (sender as Button).Background = (Brush)FindResource("BlueVioletBrush");
                 (sender as Button).Content = "ارتقا";
+
                 cmbService.IsEnabled = false;
+            }
+        }
+
+        private void GenderChange(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is not null && (sender as ComboBox).IsEnabled)
+            {
+                Customer.gender = (Customer.Gender)(sender as ComboBox).SelectedIndex;
+            }
+
+        }
+
+        private void btnGenderChange(object sender, RoutedEventArgs e)
+        {
+            if (!cmbGender.IsEnabled)
+            {
+                (sender as Button).Background = new SolidColorBrush(btnColor);
+                (sender as Button).Content = "تایید";
+                cmbGender.IsEnabled = true;
+            }
+            else
+            {
+                (sender as Button).Background = (Brush)FindResource("BlueVioletBrush");
+                (sender as Button).Content = "ویرایش";
+                cmbGender.IsEnabled = false;
+            }
+        }
+
+        private void SpecialServiceChange(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is not null && (sender as ComboBox).IsEnabled)
+            {
+                Customer.Service = (Customer.SpecialService)(sender as ComboBox).SelectedIndex;
             }
         }
     }
