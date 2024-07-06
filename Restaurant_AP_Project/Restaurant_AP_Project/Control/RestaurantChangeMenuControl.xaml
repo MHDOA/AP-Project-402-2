@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Restaurant_AP_Project.Control.RestaurantChangeMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="1060" d:DesignWidth="1550" Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="550"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="lstFoods" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch">
+            <local:URestaurantFoodItemChangeControl/>
+        </ListBox>
+
+        <ListBox x:Name="lstCategory" Grid.Row="1">
+            
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox x:Name="txtCategoryName" FontSize="15" Width="500"></TextBox>
+            <Button x:Name="btnAddCategory" Background="Purple" Height="45" Width="75" FontSize="15" Margin="15">افزودن</Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
