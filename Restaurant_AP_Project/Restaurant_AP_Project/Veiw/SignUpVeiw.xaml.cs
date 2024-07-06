@@ -21,6 +21,8 @@ namespace Restaurant_AP_Project.Veiw
     public partial class SignUpVeiw : Window
     {
         List<Customer> customers = new List<Customer>();
+        List<Restaurant> restaurants = new List<Restaurant>();
+        List<Admin> admins = new List<Admin>();
 
         private void LoadData()
         {
@@ -58,8 +60,10 @@ namespace Restaurant_AP_Project.Veiw
                 txtUsername.Text.IsCorrectUserName();
 
                 // Unique Username and Phone
-                var dupUserName = customers.Where(x => x.UserName == txtUsername.Text.Trim()).ToList();
-                if (dupUserName.Count > 0)
+                var dupCustomerUserName = customers.Where(x => x.UserName == txtUsername.Text.Trim()).ToList();
+                var dupRestaurantUserName = restaurants.Where(x => x.UserName == txtUsername.Text.Trim()).ToList();
+                var dupAdminUserName = admins.Where(x => x.UserName == txtUsername.Text.Trim()).ToList();
+                if (dupAdminUserName.Count > 0 || dupCustomerUserName.Count > 0 || dupRestaurantUserName.Count > 0)
                     throw new Exception("نام کاربری باید یکتا باشد");
 
                 var dupPhone = customers.Where(x => x.Phone == txtPhone.Text.Trim()).ToList();
