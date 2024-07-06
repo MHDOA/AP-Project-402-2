@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_AP_Project.Veiw"
         mc:Ignorable="d"
-        Title="AAdminPage" Height="1080" Width="1920">
-    
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="Admin" Height="1080" Width="1920">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -31,24 +32,6 @@
 
                 </StackPanel>
             </ListBoxItem>
-
-            <!--ChangingRestaurantPasswordItem-->
-            <ListBoxItem PreviewMouseLeftButtonDown="ChangingRestaurantPasswordClick">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Text="تغییر پسورد رستوران" Margin="0 0 7 0"/>
-
-                    <Ellipse Width="50" Height="50">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Asset/Element/admin_02.png"/>
-                        </Ellipse.Fill>
-                        <Ellipse.Stroke>
-                            <SolidColorBrush Color="LightGray"/>
-                        </Ellipse.Stroke>
-                    </Ellipse>
-
-                </StackPanel>
-            </ListBoxItem>
-
 
             <!--SearchingRestaurantItem-->
             <ListBoxItem PreviewMouseLeftButtonDown="SearchingRestaurantClick">
@@ -85,7 +68,7 @@
             </ListBoxItem>
 
             <!--WatchingLastComplaintsAnsweredItem-->
-            <ListBoxItem PreviewMouseLeftButtonDown="WatchingLastComplaintsansweredClick">
+            <ListBoxItem PreviewMouseLeftButtonDown="WatchingLastComplaintsAnsweredClick">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center" FontWeight="Bold" FontSize="15" Text="مشاهده آخرین شکایات برسی شده" Margin="0 0 7 0"/>
 
@@ -134,7 +117,14 @@
 
                 </StackPanel>
             </ListBoxItem>
+            
+            
+            
         </ListBox>
+
+        <Button FontWeight="Bold"  Background="#850F8D" FontSize="15" Foreground="LightGray" Grid.Column="1" Margin="25 0 25 15" VerticalAlignment="Bottom" Height="35" Width="200">خروج از حساب کاربری</Button>
+
+
         <Grid Margin="10" x:Name="ContentVeiw"/>
     </Grid>
 </Window>

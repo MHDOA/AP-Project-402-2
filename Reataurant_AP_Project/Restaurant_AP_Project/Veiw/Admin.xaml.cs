@@ -15,18 +15,21 @@ using System.Windows.Shapes;
 
 namespace Restaurant_AP_Project.Veiw
 {
+    /// <summary>
+    /// Interaction logic for Admin.xaml
+    /// </summary>
     public partial class Admin : Window
     {
         public Admin()
         {
             InitializeComponent();
         }
+
         private void RestaurantRegisterationClick(object sender, MouseButtonEventArgs e)
         {
             ContentVeiw.Children.Clear();
             ContentVeiw.Children.Add(new RegisterRestaurant());
         }
-
 
         private void SearchingRestaurantClick(object sender, MouseButtonEventArgs e)
         {
@@ -36,27 +39,29 @@ namespace Restaurant_AP_Project.Veiw
 
         private void SearchingComplaintsClick(object sender, MouseButtonEventArgs e)
         {
-
+            ContentVeiw.Children.Clear();
+            ContentVeiw.Children.Add(new SearchingComplaint());
         }
 
-        private void WatchingLastComplaintsansweredClick(object sender, MouseButtonEventArgs e)
-        {
 
+        private void WatchingLastComplaintsAnsweredClick(object sender, MouseButtonEventArgs e)
+        {
+            ContentVeiw.Children.Clear();
+            ContentVeiw.Children.Add(new LastAnsweredComplaint());
         }
 
         private void AnsweringComplaitsClick(object sender, MouseButtonEventArgs e)
         {
-
+            ContentVeiw.Children.Clear();
+            ContentVeiw.Children.Add(new AnswerComplaint());
         }
 
         private void WathcingAllComppaintsClick(object sender, MouseButtonEventArgs e)
         {
-
-        }
-
-        private void ChangingRestaurantPasswordClick(object sender, MouseButtonEventArgs e)
-        {
             ContentVeiw.Children.Clear();
+            ContentVeiw.Children.Add(new WatchingAllComplaints());
         }
+
+
     }
 }
