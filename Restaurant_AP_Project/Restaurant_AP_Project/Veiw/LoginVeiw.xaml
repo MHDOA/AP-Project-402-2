@@ -62,11 +62,11 @@
                         
                         <Image Source="/Asset/Logo2.png" Width="210" Margin="0 30 0 20"/>
 
-                        <TextBlock x:Name="txtUsername" Text=":نام کاربری" Foreground="LightGray" FontSize="14" Margin="0 20 0 0"/>
-                        <TextBox CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
+                        <TextBlock  Text=":نام کاربری" Foreground="LightGray" FontSize="14" Margin="0 20 0 0"/>
+                        <TextBox x:Name="txtUsername" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
 
-                        <TextBlock x:Name="txtPass" Margin="0 20 0 0" Text=":رمز ورود" Foreground="LightGray" FontSize="14"/>
-                        <TextBox CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
+                        <TextBlock  Margin="0 20 0 0" Text=":رمز ورود" Foreground="LightGray" FontSize="14"/>
+                        <PasswordBox Background="Transparent" x:Name="txtPass" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
 
                         <Button Click="btnLogin" FontSize="15" Opacity="100" Background="#008DDA" Margin="10 35 10 0" Width="120" Height="30">ورود</Button>
                         <Button Click="btnSignUp" Margin="0 14 0 0" Background="Transparent" Foreground="LightGray" FontSize="13">حساب کاربری ندارید؟ ثبت نام کنید</Button>

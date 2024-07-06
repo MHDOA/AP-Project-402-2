@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant_AP_Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,54 @@ namespace Restaurant_AP_Project.Veiw
     /// </summary>
     public partial class LoginVeiw : Window
     {
+        public List<Customer> customers = new List<Customer>();
+
+        private void LoadData()
+        {
+            // Load Data Base
+        }
+
         public LoginVeiw()
         {
+            DataContext = this;
             InitializeComponent();
+            LoadData();
         }
 
         private void btnLogin(object sender, RoutedEventArgs e)
         {
+            if (String.IsNullOrEmpty(txtUsername.Text.Trim()))
+            {
+                MessageBox.Show("نام کاربری نمیتواند خالی باشد");
+                return;
+            }
 
+            if (String.IsNullOrEmpty(txtPass.Password.Trim()))
+            {
+                MessageBox.Show("رمز ورود نمیتواند خالی باشد");
+                return;
+            }
+
+            Customer customer;
+            try
+            {
+                customer = customers.Where(x => x.UserName == txtUsername.Text).First();
+
+                if (customer.Password == txtPass.Password)
+                {
+                    CustomerMainVeiw customerMainVeiw = new CustomerMainVeiw(customer);
+                    customerMainVeiw.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("رمز ورود اشتباه است");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("نام کاربری نامعتبر");
+            }
         }
 
         private void MouseDownMove(object sender, MouseButtonEventArgs e)
@@ -55,5 +96,5 @@ namespace Restaurant_AP_Project.Veiw
         }
     }
 
-    
+
 }
