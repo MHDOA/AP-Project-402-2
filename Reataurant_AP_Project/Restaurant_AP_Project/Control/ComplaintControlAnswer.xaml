@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Restaurant_AP_Project.Control.ComplaintControlAnswer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="220" d:DesignWidth="1200">
+    <Border BorderBrush="#ccc" BorderThickness="1" Margin="10" Padding="10" Background="White" HorizontalAlignment="Stretch">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="txtComplaintTitle" Grid.Row="0" Grid.Column="1" FontWeight="Bold" FontSize="15" Text=": عنوان شکایت" Width="100" HorizontalAlignment="Right" TextAlignment="Right" />
+            <TextBlock x:Name="txtComplaintTitleValue" Grid.Row="0" Grid.Column="0" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock x:Name="txtUserName" Grid.Row="1" Grid.Column="1" FontWeight="Bold" FontSize="14" Text=": نام کاربری شاکی" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtUserNameValue" Grid.Row="1" Grid.Column="0" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock x:Name="txtRestaurant" Grid.Row="2" Grid.Column="1" FontWeight="Bold" FontSize="14" Text=": رستوران" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtRestaurantValue" Grid.Row="2" Grid.Column="0" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock x:Name="txtDescription" Grid.Row="3" Grid.Column="1" FontWeight="Bold" FontSize="12" Text=": توضیح" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtDescriptionValue" Grid.Row="3" Grid.Column="0" FontSize="12" TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock x:Name="txtIsAnswered" Grid.Row="4" Grid.Column="1" FontWeight="Bold" FontSize="12" Text=": وضعیت برسی" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtIsAnsweredValue" Grid.Row="4" Grid.Column="0" FontSize="12" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock x:Name="txtAnswer" Grid.Row="1" Grid.Column="1" FontWeight="Bold" FontSize="12" Text=": پاسخ" HorizontalAlignment="Right" Width="100" TextAlignment="Right" Visibility="Collapsed"/>
+            <TextBox x:Name="txtAnswerValue" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" TextWrapping="Wrap" Visibility="Collapsed" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <TextBlock x:Name="txtDateTime" Grid.Row="5" Grid.Column="1" FontWeight="Bold" FontSize="12" Text=": تاریخ و زمان" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="txtDateTimeValue" Grid.Row="5" Grid.Column="0" FontSize="12" HorizontalAlignment="Left" TextAlignment="Left"/>
+
+            <Button x:Name="btnToggleAnswer" Grid.Row="6" Grid.Column="0" Background="BlueViolet" Width="100" Content="پاسخ" Click="btnToggleAnswer_Click" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+    </Border>
+</UserControl>
