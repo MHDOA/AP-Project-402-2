@@ -62,13 +62,13 @@
                         <Image Source="/Asset/Logo2.png" Width="210" Margin="0 30 0 20"/>
 
                         <TextBlock  Margin="0 17 0 0" Text=":کد تایید" Foreground="LightGray" FontSize="14"/>
-                        <TextBox x:Name="txtVerifyCode" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
+                        <TextBox Background="Transparent" x:Name="txtVerifyCode" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
 
                         <TextBlock  Margin="0 17 0 0" Text=":رمز ورود" Foreground="LightGray" FontSize="14"/>
-                        <TextBox x:Name="txtPass" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
+                        <PasswordBox Background="Transparent" x:Name="txtPass" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
 
                         <TextBlock  Margin="0 17 0 0" Text=":تکرار رمز ورود" Foreground="LightGray" FontSize="14"/>
-                        <TextBox x:Name="txtPassDup" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
+                        <PasswordBox Background="Transparent" x:Name="txtPassDup" CaretBrush="LightGray" FontSize="13" BorderBrush="DarkGray" Foreground="White"/>
 
                         <Button Click="btnVerify" FontSize="15" Opacity="100" Background="#015834" Margin="10 35 10 0" Width="120" Height="30">تایید</Button>
                     </StackPanel>
