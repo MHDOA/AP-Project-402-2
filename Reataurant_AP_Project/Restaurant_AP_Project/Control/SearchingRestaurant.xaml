@@ -6,42 +6,41 @@
              xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
              mc:Ignorable="d" 
              d:DesignHeight="1060" d:DesignWidth="1550">
-    
-    
+
     <Grid Background="#f0f0f0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Title -->
         <StackPanel Grid.Row="0" Margin="20">
             <TextBlock Text="جستجو بین رستوران ها" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
         </StackPanel>
 
+        <!-- Search Filters -->
         <Border Grid.Row="1" Background="White" BorderBrush="#ccc" BorderThickness="1" Margin="20">
-
-            <StackPanel Grid.Row="1" Margin="10">
+            <StackPanel Margin="10">
                 <TextBlock Text=": شهر" FontWeight="Bold"/>
-                <TextBox x:Name="txtCity" Margin="0 5" />
+                <TextBox x:Name="txtCity" Margin="0 5"/>
 
                 <TextBlock Text=": نام رستوران" FontWeight="Bold" Margin="0 10 0 0"/>
                 <TextBox x:Name="txtName" Margin="0 5"/>
 
                 <TextBlock Text=": حداقل امتیاز" FontWeight="Bold" Margin="0 10 0 0"/>
-                <TextBox x:Name="txtMinScore" Margin="0 5" />
+                <TextBox x:Name="txtMinScore" Margin="0 5"/>
 
-                <CheckBox Grid.Row="2" x:Name="chkComplaints" Content="شکایت برسی نشده دارد" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <CheckBox x:Name="chkComplaints" Content="شکایت برسی نشده دارد" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             </StackPanel>
         </Border>
 
+        <Button Grid.Row="2" x:Name="btnSearch" Content="جستجو" Click="btnSearchClick" HorizontalAlignment="Center" Width="100"
+            Background="BlueViolet" Foreground="White" BorderThickness="0" Padding="10" Margin="0 20"/>
 
-
-        <Button Grid.Row="3" x:Name="btnSearch" Content="جستجو" Click="btnSearchClick" HorizontalAlignment="Center" Width="100"
-                Background="BlueViolet" Foreground="White" BorderThickness="0" Padding="10" Margin="0 20"/>
+        <ListBox x:Name="lstRestaurants" Grid.Row="4" Margin="20" HorizontalContentAlignment="Stretch"/>
 
     </Grid>
-
 </UserControl>

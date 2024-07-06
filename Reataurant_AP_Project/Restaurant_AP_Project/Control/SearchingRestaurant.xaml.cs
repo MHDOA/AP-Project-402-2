@@ -27,7 +27,25 @@ namespace Restaurant_AP_Project.Control
 
         private void btnSearchClick(object sender, RoutedEventArgs e)
         {
-
+            List<RestaurantControl> restaurants = new List<RestaurantControl>();
+            lstRestaurants.Items.Clear();
+            for (int i = 1; i <= 5; i++)
+            {
+                var restaurantControl = new RestaurantControl
+                {
+                    RestaurantName = "رستوران ",
+                    Username = "یوزر",
+                    ReceptionType = "تایپ",
+                    Score = (4.0 + i * 0.1).ToString(),
+                    Address = "آدرس",
+                    Categories = "کتگوری "
+                };
+                restaurants.Add(restaurantControl);
+            }
+            foreach (var restaurant in restaurants)
+            {
+                lstRestaurants.Items.Add(restaurant);
+            }
         }
     }
 }
