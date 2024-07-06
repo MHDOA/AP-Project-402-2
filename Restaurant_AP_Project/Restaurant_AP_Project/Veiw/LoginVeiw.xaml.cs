@@ -21,6 +21,8 @@ namespace Restaurant_AP_Project.Veiw
     public partial class LoginVeiw : Window
     {
         public List<Customer> customers = new List<Customer>();
+        public List<Restaurant> restaurants = new List<Restaurant>();
+        public List<Admin> admins = new List<Admin>();
 
         private void LoadData()
         {
@@ -66,7 +68,42 @@ namespace Restaurant_AP_Project.Veiw
             }
             catch
             {
-                MessageBox.Show("نام کاربری نامعتبر");
+                Restaurant restaurant;
+                try
+                {
+                    restaurant = restaurants.Where(x => x.UserName == txtUsername.Text).First();
+                    if(restaurant.Pass == txtPass.Password)
+                    {
+                        RestaurantMainView restaurantMainView = new RestaurantMainView(restaurant);
+                        restaurantMainView.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("رمز ورود اشتباه است");
+                    }
+                }
+                catch
+                {
+                    Admin admin;
+                    try
+                    {
+                        admin = admins.Where(x => x.UserName == txtUsername.Text).First();
+                        if(admin.Password == txtPass.Password)
+                        {
+                            // TODO send admin to amdin main view
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("رمز ورود اشتباه است");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("نام کاربری نامعتبر است");
+                    }
+                }
             }
         }
 
