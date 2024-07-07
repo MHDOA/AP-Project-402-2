@@ -23,20 +23,24 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBox Margin="0 0 20 0" Width="750" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Left" FlowDirection="RightToLeft"></TextBox>
-                <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Right">:نام رستوران</TextBlock>
+                <TextBox x:Name="txtRestaurant" Margin="0 0 20 0" Width="600" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Left" FlowDirection="RightToLeft"></TextBox>
+                <TextBlock Margin="0 0 20 0" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Right">:نام رستوران</TextBlock>
+
+                <TextBox x:Name="txtTitle" Margin="0 0 20 0" Width="600" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Left" FlowDirection="RightToLeft"></TextBox>
+                <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Right">:عنوان</TextBlock>
             </StackPanel>
             
             <TextBlock VerticalAlignment="Center" Grid.Row="1" FontSize="20" FontWeight="Bold">:توضیحات</TextBlock>
-            <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="45" Background="Purple" FontSize="18">ثبت شکایت</Button>
+            <Button Click="btnCreateComplaint" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="45" Background="Purple" FontSize="18">ثبت شکایت</Button>
             <Border Grid.Row="2" CornerRadius="20" Background="LightGray">
-                <TextBox Margin="20" TextAlignment="Left" BorderThickness="0" FontSize="17" TextWrapping="Wrap" FlowDirection="RightToLeft"></TextBox>
+                <TextBox x:Name="txtContent" Margin="20" TextAlignment="Left" BorderThickness="0" FontSize="17" TextWrapping="Wrap" FlowDirection="RightToLeft"></TextBox>
             </Border>
         </Grid>
 
-        <ListBox Margin="10" Grid.Row="1" HorizontalContentAlignment="Stretch">
-            <!--<local:ComplaintControl></local:ComplaintControl>-->
+        <ListBox x:Name="lstSupport" Margin="10" Grid.Row="1" HorizontalContentAlignment="Stretch">
+            
         </ListBox>
         
     </Grid>
