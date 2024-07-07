@@ -30,11 +30,21 @@ namespace Restaurant_AP_Project.Control
 
         private void LoadData()
         {
-            Restaurant r1 = new Restaurant(1, "خوشه", "sdf", "sdf", "تهران، خیابان فلسطین", "تهران", new List<string> { "FastFood", "Fruite"}, null, null, 4, null, null, true, false, false);
+            Comment comment = new Comment(1, 1, "سلام خیلی خوب بود", DateTime.Now, 4, false, null);
+            Comment comment2 = new Comment(1, 1, "بدک نبود", DateTime.Now, 4, false, "hello");
+            Comment comment3 = new Comment(2, 1, "سلام خیلی خوب بود", DateTime.Now, 3, false, null);
+            Comment comment4 = new Comment(2, 1, "سلام خیلی خوب بود", DateTime.Now, 2, false, null);
+
+            Food f1 = new Food(1, "ساندویچ", "نون، گوشت", 4, 3, 45, "فست فود", "/Asset/Humber.jpg", new List<Comment>() { comment, comment2, comment3, comment4 });
+            //Food f2 = new Food(1, "سیب", "آب", 2, 15, 10, "میوه", "/Asset/Humber.jpg", null);
+            Food f3 = new Food(1, "پیتزا", "سس", 5, 5, 80, "فست فود", "/Asset/Humber.jpg", null);
+
+            Restaurant r1 = new Restaurant(1, "خوشه", "sdf", "sdf", "تهران، خیابان فلسطین", "تهران", new List<string> { "فست فود", "میوه"}, new List<Food> { f1,  f3}, null, 4, null, null, true, false, false);
             Restaurant r2 = new Restaurant(1, "نسیم", "sdf", "sdf", "میدان قدس", "تهران", null, null, null, 4, null, null, true, false, true);
             Restaurant r3 = new Restaurant(1, "گوارا", "sdf", "sdf", "تهران، خیابان فلسطین", "یزد", null, null, null, 4, null, null, true, true, false);
             Restaurant r4 = new Restaurant(1, "گیلا", "sdf", "sdf", "زاینده رود", "اصفهان", null, null, null, 4, null, null, true, true, true);
             Restaurant r5 = new Restaurant(1, "زمزم", "sdf", "sdf", "مسجد جامع", "یزد", null, null, null, 4, null, null, true, false, false);
+
 
             restaurants.Add(r1);
             restaurants.Add(r2);
@@ -57,6 +67,7 @@ namespace Restaurant_AP_Project.Control
                 restaurantPreview.UinfoAddressBoxText = item.Address;
                 restaurantPreview.UinfoDliveryBool = item.IsDlivery;
                 restaurantPreview.UinfoDine_InBool = item.IsDineIn;
+                restaurantPreview.AverageRate = item.Rate;
                 restaurantPreview.btnOrderClick += btnOrderClick;
 
                 lstRestaurant.Items.Add(restaurantPreview);
