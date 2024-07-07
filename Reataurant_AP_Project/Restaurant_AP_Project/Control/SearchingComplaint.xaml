@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Restaurant_AP_Project.Control.SearchingComplaint"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="1060" d:DesignWidth="1550">
+    <Grid Background="#f0f0f0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20">
+            <TextBlock Text="جستجو بین شکایت ها" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="White" BorderBrush="#ccc" BorderThickness="1" Margin="20">
+            <StackPanel Margin="10">
+                <TextBlock Text=": نام کاربری کاربر شاکی" FontWeight="Bold"/>
+                <TextBox x:Name="txtCity" Margin="0 5" />
+
+                <TextBlock Text=": عنوان شکایت" FontWeight="Bold" Margin="0 10 0 0"/>
+                <TextBox x:Name="txtName" Margin="0 5"/>
+
+                <TextBlock Text=": رستوران مربوطه" FontWeight="Bold" Margin="0 10 0 0"/>
+                <TextBox x:Name="txtMinScore" Margin="0 5" />
+
+                <CheckBox x:Name="chkComplaints" Content="شکایت برسی شده" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Border>
+
+        <Button Grid.Row="2" x:Name="btnSearch" Content="جستجو" Click="btnSearchClick" HorizontalAlignment="Center" Width="100"
+            Background="BlueViolet" Foreground="White" BorderThickness="0" Padding="10" Margin="0 20"/>
+
+        <ListBox x:Name="lstComplaints" Grid.Row="4" Margin="20" HorizontalContentAlignment="Stretch"/>
+    </Grid>
+</UserControl>

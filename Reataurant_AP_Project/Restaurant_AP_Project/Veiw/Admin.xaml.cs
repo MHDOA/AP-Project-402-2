@@ -1,4 +1,5 @@
 ﻿using Restaurant_AP_Project.Control;
+using Restaurant_AP_Project.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Restaurant_AP_Project.Veiw
         public Admin()
         {
             InitializeComponent();
+            AppInitialization.loader.LoadData();
         }
 
         private void RestaurantRegisterationClick(object sender, MouseButtonEventArgs e)
@@ -62,6 +64,6 @@ namespace Restaurant_AP_Project.Veiw
             ContentVeiw.Children.Add(new WatchingAllComplaints());
         }
 
-
+       
     }
 }

@@ -17,6 +17,8 @@ namespace Restaurant_AP_Project.Control
 {
     public partial class ComplaintControl : UserControl
     {
+        public int Id { get; set; }
+
         public string UserName
         {
             get { return txtUserNameValue.Text; }

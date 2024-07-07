@@ -24,5 +24,10 @@ namespace Restaurant_AP_Project.Control
         {
             InitializeComponent();
         }
+
+        private void btnRegisterClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant_AP_Project.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,25 +28,26 @@ namespace Restaurant_AP_Project.Control
         }
         public void FillList()
         {
-            List<ComplaintControlAnswer> complaints = new List<ComplaintControlAnswer>()
-            {
-                new ComplaintControlAnswer {UserName = "user456",
-    ComplaintTitle = "کیفیت غذای نامناسب",
-    Restaurant = "رستوران ب",
-    Description = "کیفیت غذا بسیار پایین بود و مزه آن اصلاً خوب نبود.",
-    IsAnswered = true,
-    Answer = "ما از شنیدن این موضوع بسیار متاسفیم. بازخورد شما با مدیر رستوران در میان گذاشته شده و اقدامات لازم برای بهبود کیفیت غذا انجام خواهد شد."},
-                new ComplaintControlAnswer {UserName = "user456",
-    ComplaintTitle = "کیفیت غذای نامناسب",
-    Restaurant = "رستوران ب",
-    Description = "کیفیت غذا بسیار پایین بود و مزه آن اصلاً خوب نبود.",
-    IsAnswered = true,
-    Answer = ""}
-            };
             lstComplaints.Items.Clear();
-            foreach(var complaint in complaints)
+
+            // Iterate through the list of complaints in StaticData
+            foreach (var complaint in StaticData.Complaints)
             {
-                lstComplaints.Items.Add(complaint);
+                // Create a new instance of the ComplaintControlAnswer
+                var complaintControl = new ComplaintControlAnswer();
+
+                // Set the properties of the ComplaintControlAnswer from the complaint object
+                complaintControl.Id = complaint.Id;
+                complaintControl.UserName = complaint.UserName;
+                complaintControl.ComplaintTitle = complaint.Title;
+                complaintControl.Restaurant = complaint.RestaurantName;
+                complaintControl.Description = complaint.Content;
+                complaintControl.IsAnswered = complaint.IsAnswered;
+                complaintControl.Answer = complaint.Answer;
+                complaintControl.ComplaintDateTime = complaint.DateTime;
+
+                // Add the ComplaintControlAnswer to the list
+                lstComplaints.Items.Add(complaintControl);
             }
         }
     }

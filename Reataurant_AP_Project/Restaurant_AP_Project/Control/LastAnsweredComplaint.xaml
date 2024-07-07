@@ -16,6 +16,6 @@
             <TextBlock Text="مشاهده آخرین شکایات بررسی شده" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <ListBox x:Name="lstComplaints" Grid.Row="1" Margin="20"/>
+        <ListBox x:Name="lstComplaints" Grid.Row="1" Margin="20" HorizontalContentAlignment="Stretch"/>
     </Grid>
 </UserControl>

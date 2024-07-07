@@ -58,6 +58,7 @@ namespace Restaurant_AP_Project.DataAccess
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
             }
         }
 
@@ -83,6 +84,8 @@ namespace Restaurant_AP_Project.DataAccess
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
+
             }
         }
 
@@ -116,6 +119,8 @@ namespace Restaurant_AP_Project.DataAccess
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
+
             }
         }
 
@@ -148,6 +153,8 @@ namespace Restaurant_AP_Project.DataAccess
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
+
             }
         }
 
@@ -179,6 +186,8 @@ namespace Restaurant_AP_Project.DataAccess
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
+
             }
         }
 
@@ -202,7 +211,7 @@ namespace Restaurant_AP_Project.DataAccess
                                    $"END " +
                                    $"ELSE " +
                                    $"BEGIN " +
-                                   $"    INSERT INTO Complaint (RestaurantId, UserId, Title, Content, DateTime, Restaurant, Answer, IsAnswered) " +
+                                   $"    INSERT INTO Complaint (RestaurantId, UserId, Title, Content, DateTime, Answer, IsAnswered) " +
                                    $"    VALUES ({complaint.RestaurantId}, {complaint.UserId}, " +
                                    $"            N'{complaint.Title}', N'{complaint.Content}', '{complaint.DateTime.ToString("yyyy-MM-dd HH:mm:ss")}', " +
                                    $"            N'{complaint.Answer}', '{(complaint.IsAnswered ? 1 : 0)}') " +
@@ -210,6 +219,8 @@ namespace Restaurant_AP_Project.DataAccess
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
+
             }
         }
 
@@ -238,6 +249,8 @@ namespace Restaurant_AP_Project.DataAccess
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
+
             }
         }
 

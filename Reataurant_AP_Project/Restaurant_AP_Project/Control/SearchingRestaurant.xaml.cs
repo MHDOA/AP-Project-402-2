@@ -33,8 +33,8 @@ namespace Restaurant_AP_Project.Control
             {
                 var restaurantControl = new RestaurantControl
                 {
-                    RestaurantName = "رستوران ",
-                    Username = "یوزر",
+                    RestaurantName = "رستوران " ,
+                    Username = "یوزر" ,
                     ReceptionType = "تایپ",
                     Score = (4.0 + i * 0.1).ToString(),
                     Address = "آدرس",

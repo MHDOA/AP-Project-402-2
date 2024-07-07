@@ -25,13 +25,13 @@ namespace Restaurant_AP_Project.DataAccess
 
         public void LoadData()
         {
-            LoadCustomers();
-            LoadAdmins();
-            LoadRestaurants();
+            LoadOrders();
             LoadComments();
             LoadFoods();
+            LoadAdmins();
+            LoadRestaurants();
             LoadComplaints();
-            LoadOrders();
+            LoadCustomers();
         }
 
 
@@ -39,7 +39,7 @@ namespace Restaurant_AP_Project.DataAccess
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Order";
+                string query = "SELECT * FROM Orders"; // Including schema dbo and square brackets around Order
                 SqlCommand command = new SqlCommand(query, connection);
                 StaticData.Orders = new List<Order>();
                 connection.Open();
@@ -57,6 +57,8 @@ namespace Restaurant_AP_Project.DataAccess
                     };
                     StaticData.Orders.Add(order);
                 }
+                connection.Close();
+
             }
         }
 
@@ -84,6 +86,8 @@ namespace Restaurant_AP_Project.DataAccess
                     };
                     StaticData.Comments.Add(comment);
                 }
+                connection.Close();
+
             }
         }
 
@@ -115,6 +119,8 @@ namespace Restaurant_AP_Project.DataAccess
                     food.ListComments = StaticData.Comments.Where(c => c.FoodId == food.Id).ToList();
                     StaticData.Foods.Add(food);
                 }
+                connection.Close();
+
             }
         }
 
@@ -137,6 +143,8 @@ namespace Restaurant_AP_Project.DataAccess
                     };
                     StaticData.Admins.Add(admin);
                 }
+                connection.Close();
+
             }
         }
 
@@ -176,7 +184,10 @@ namespace Restaurant_AP_Project.DataAccess
                     restaurant.ListReservesHistory = new List<Reserve>();
                     restaurant.Categories = cat.Split(",").ToList();
                     StaticData.Restaurants.Add(restaurant);
+
                 }
+                connection.Close();
+
             }
         }
 
@@ -205,11 +216,23 @@ namespace Restaurant_AP_Project.DataAccess
                         Answer = reader["Answer"].ToString(),
                         IsAnswered = Convert.ToBoolean(reader["IsAnswered"])
                     };
-                    complaint.RestaurantName = StaticData.Restaurants.Where(r => r.Id == complaint.RestaurantId).Select(r => r.Name).ToString();
-                    complaint.UserName = StaticData.Customers.Where(u => u.Id == complaint.RestaurantId).Select(u => u.Username).ToString();
+                    complaint.RestaurantName = StaticData.Restaurants.ToList().FirstOrDefault(r => r.Id == complaint.RestaurantId).Name.ToString();
+                    var customer = StaticData.Customers.FirstOrDefault(c => c.Id == complaint.UserId);
+                    if (customer != null)
+                    {
+                        complaint.UserName = customer.Username;
+                    }
+                    else
+                    {
+                        // Handle the case where the customer is not found
+                        complaint.UserName = "Unknown";
+                    }
 
                     StaticData.Complaints.Add(complaint);
+
                 }
+                connection.Close();
+
             }
         }
 
@@ -244,7 +267,9 @@ namespace Restaurant_AP_Project.DataAccess
                     customer.Reserves = new List<Reserve>();
                     StaticData.Customers.Add(customer);
                 }
+                connection.Close();
             }
+            LoadComplaints();
         }
 
     }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Restaurant_AP_Project.Data;
+using Restaurant_AP_Project.DataAccess;
+using Restaurant_AP_Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +23,7 @@ namespace Restaurant_AP_Project.Control
     /// </summary>
     public partial class ComplaintControlAnswer : UserControl
     { 
+        public int Id {  get; set; }
         public string UserName
         {
             get { return txtUserNameValue.Text; }
@@ -78,6 +82,7 @@ namespace Restaurant_AP_Project.Control
             txtAnswerValue.Visibility = Visibility.Collapsed;
         }
 
+        int flag = 0;
         private void btnToggleAnswer_Click(object sender, RoutedEventArgs e)
         {
             if (isShowingAnswer)
@@ -85,16 +90,40 @@ namespace Restaurant_AP_Project.Control
                 ShowComplaintDetails();
                 btnToggleAnswer.Content = "پاسخ";
                 btnToggleAnswer.Background = new SolidColorBrush(Colors.BlueViolet);
+                if (flag == 1)
+                {
+                    SaveAnswer();
+                    AppInitialization.updater.UpdateComplaints();
+                }
             }
             else
             {
                 ShowAnswer();
                 btnToggleAnswer.Content = "ثبت";
                 btnToggleAnswer.Background = new SolidColorBrush(Colors.Pink);
+                flag = 1;
             }
 
             isShowingAnswer = !isShowingAnswer;
         }
+
+
+
+        private void SaveAnswer()
+        {
+            // Find the complaint in StaticData.Complaints with matching ComplaintId
+            var complaint = StaticData.Complaints.FirstOrDefault(c => c.Id == Id);
+
+            if (complaint != null)
+            {
+                // Update the Answer and mark it as answered
+                complaint.Answer = txtAnswerValue.Text;
+                complaint.IsAnswered = true; // Optionally mark it as answered
+            }
+        }
+
+
+
 
         private void ShowAnswer()
         {

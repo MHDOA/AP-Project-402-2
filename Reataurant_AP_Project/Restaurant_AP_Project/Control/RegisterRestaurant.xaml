@@ -21,21 +21,21 @@
 
         <Border Grid.Row="1" Background="White" BorderBrush="#ccc" BorderThickness="1" Margin="20">
             <StackPanel Margin="10">
-                <TextBlock Text="Restaurant Name:" FontWeight="Bold"/>
+                <TextBlock Text=": نام رستوارن" FontWeight="Bold"/>
                 <TextBox x:Name="txtRestaurantName" Margin="0 5" 
                          FontSize="14"/>
 
-                <TextBlock Text="Password:" FontWeight="Bold" Margin="0 10 0 0"/>
+                <TextBlock Text=": رمز عبور" FontWeight="Bold" Margin="0 10 0 0"/>
                 <TextBox x:Name="txtPassword" Margin="0 5" 
          FontSize="14"/>
 
-                <TextBlock Text="Confirm Password:" FontWeight="Bold" Margin="0 10 0 0"/>
+                <TextBlock Text=": تکرار رمز عبور" FontWeight="Bold" Margin="0 10 0 0"/>
                 <TextBox x:Name="txtPasswordRepeat" Margin="0 5" 
          FontSize="14"/>
             </StackPanel>
         </Border>
 
-        <Button Grid.Row="2" x:Name="btnRegister" Content="ثبت رستوران" Click="btnRegister_Click" HorizontalAlignment="Center"
+        <Button Grid.Row="2" x:Name="btnRegister" Content="ثبت رستوران" Click="btnRegisterClick" HorizontalAlignment="Center"
                 Width="150" Background="BlueViolet" BorderThickness="0" Padding="12" Margin="0,20,0,20"/>
     </Grid>
 </UserControl>

@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Data;
+using Restaurant_AP_Project.Data;
+using Restaurant_AP_Project.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Restaurant_AP_Project.Control
 {
@@ -28,28 +32,24 @@ namespace Restaurant_AP_Project.Control
         }
         public void loadComplaints()
         {
-            var complaints = new List<ComplaintControl>
-            {
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-                new ComplaintControl { UserName = "این برای تست است", ComplaintTitle = "این برای تست است", Restaurant = "این برای تست است", Description ="تست تست تست تست تستتست تست تست تست تستتست تست تست تست تستتست تست تست تست تست", IsAnswered = true },
-            };
+
+
 
             lstComplaints.Items.Clear();
-            foreach (var complaint in complaints)
+
+            foreach (var complaint in StaticData.Complaints)
             {
-                lstComplaints.Items.Add(complaint);
+                var complaintControl = new ComplaintControl();
+                complaintControl.Id = complaint.Id;
+                complaintControl.UserName = complaint.UserName;
+                complaintControl.ComplaintTitle = complaint.Title;
+                complaintControl.Restaurant = complaint.RestaurantName;
+                complaintControl.Description = complaint.Content;
+                complaintControl.IsAnswered = complaint.IsAnswered;
+                complaintControl.Answer = complaint.Answer;
+                complaintControl.ComplaintDateTime = complaint.DateTime;
+
+                lstComplaints.Items.Add(complaintControl);
             }
         }
     }
