@@ -29,20 +29,15 @@ namespace Restaurant_AP_Project.Control
             txtRestaurantName.Text = restaurant.Name;
 
             // Load Categories
-            foreach (var item in restaurant.Categories)
+            if (restaurant.Categories is not null && restaurant.Categories.Count > 0)
             {
-                URestaurantFoodCategory restaurantFoodCategory = new URestaurantFoodCategory();
-                restaurantFoodCategory.CategoryText = item;
+                foreach (var item in restaurant.Categories)
+                {
+                    URestaurantFoodCategory restaurantFoodCategory = new URestaurantFoodCategory();
+                    restaurantFoodCategory.CategoryText = item;
 
-                lstCategory.Items.Add(restaurantFoodCategory);
-            }
-
-            foreach (var item in restaurant.Comments)
-            {
-                URestaurantCommentHistory commentHistory = new URestaurantCommentHistory();
-                commentHistory.Comment = item.CommentText;
-
-                lstComment.Items.Add(commentHistory);
+                    lstCategory.Items.Add(restaurantFoodCategory);
+                }
             }
         }
         private void Data_Loaded(object sender, RoutedEventArgs e)
@@ -57,38 +52,19 @@ namespace Restaurant_AP_Project.Control
             this.Loaded += Data_Loaded;
         }
 
-        private void btnChangeRate(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-
-            if (uinfoRate.txtBox.IsEnabled)
-            {
-                uinfoRate.txtBox.IsEnabled = false;
-                button.Content = "ویرایش";
-            }
-            else
-            {
-                uinfoRate.txtBox.IsEnabled = true;
-                button.Content = "تایید";
-            }
-        }
-
         private void btnBack(object sender, RoutedEventArgs e)
         {
             grdMain.Children.Clear();
             grdMain.Children.Add(new CustomerOrderingFoodControl());
         }
 
-        private void btnComment(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void lstMenuSelected(object sender, SelectionChangedEventArgs e)
         {
-            ListBox listBox = sender as ListBox;
+            string category = ((sender as ListBox).SelectedItem as URestaurantFoodCategory).CategoryText;
+
+            var foods = restaurant.Menu.Where(x => x.Category.Equals(category)).ToList();
             grdMain.Children.Clear();
-            grdMain.Children.Add(new CustomerFoodSelectionControl());
+            grdMain.Children.Add(new CustomerFoodSelectionControl(foods,restaurant));
         }
     }
 }

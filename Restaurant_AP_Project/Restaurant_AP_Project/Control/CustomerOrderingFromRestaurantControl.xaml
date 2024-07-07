@@ -11,7 +11,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -23,34 +22,14 @@
             <Button Click="btnBack" Margin="15" Height="40" Width="80" Background="#E349CE" VerticalAlignment="Center" HorizontalAlignment="Left">برگشت</Button>
 
             <!--RestaurantTitle-->
-            <StackPanel Grid.Row="1" Grid.Column="2">
+            <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
                 <Image Width="300" Source="/Asset/Element/DefaultPicture.png"/>
-                <TextBlock x:Name="txtRestaurantName" FontSize="50" FontWeight="Bold" Margin="20"></TextBlock>
+                <TextBlock HorizontalAlignment="Center" x:Name="txtRestaurantName" FontSize="50" FontWeight="Bold" Margin="20"></TextBlock>
             </StackPanel>
 
             <!--FoodMenu-->
             <ListBox x:Name="lstCategory" SelectionChanged="lstMenuSelected" Margin="30" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch">
             </ListBox>
-
-            <!--CommentZone-->
-            <StackPanel Margin="10" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
-                <StackPanel Margin="30" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Margin="10" Click="btnChangeRate" Width="50" Background="Purple">ویرایش</Button>
-                    <local:UInformationBox x:Name="uinfoRate" BlockText="امتیاز">
-                    </local:UInformationBox>
-                </StackPanel>
-                <TextBlock HorizontalAlignment="Center" FontSize="25" FontWeight="Bold">کامنت</TextBlock>
-                <TextBox Width="400" Height="200" Background="LightGray" BorderThickness="0" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" HorizontalContentAlignment="Right" MaxLength="120"/>
-                <Button Click="btnComment" HorizontalAlignment="Center" Margin="15" Background="Purple" Width="70" Height="25">تایید</Button>
-            </StackPanel>
-
-            <!--CommentHistory-->
-            <StackPanel Margin="30" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <TextBlock Margin="10" HorizontalAlignment="Center" FontSize="20">کامنت های قبلی</TextBlock>
-                <ListBox x:Name="lstComment" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
-                    <!--<local:URestaurantCommentHistory Comment="" btnEditClick="btn"></local:URestaurantCommentHistory>-->
-                </ListBox>
-            </StackPanel>
 
         </Grid>
     </Grid>
