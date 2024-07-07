@@ -72,7 +72,7 @@ namespace Restaurant_AP_Project.Model
 
 		private string userName;
 
-		public string UserName
+		public string Username
 		{
 			get { return userName; }
 			set { userName = value; }
@@ -136,7 +136,7 @@ namespace Restaurant_AP_Project.Model
             Service = service;
             this.gender = gender;
             Phone = phone;
-            UserName = userName;
+            Username = userName;
             Password = password;
 
 			if (address != null)
