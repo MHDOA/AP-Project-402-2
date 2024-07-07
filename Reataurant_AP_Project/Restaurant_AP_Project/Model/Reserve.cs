@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Restaurant_AP_Project.Model
 {
-    public class Admin
+    public class Reserve
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+
     }
 }
