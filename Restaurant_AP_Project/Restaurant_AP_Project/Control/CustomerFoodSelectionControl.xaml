@@ -19,16 +19,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalContentAlignment="Stretch">
-                
-                <local:URestaurantFoodItemControl
-                    FoodInventory="5"
-                    FoodNameText="کباب زنجان"
-                    FoodPrice="125"
-                    FoodRawMaterial="گوشت گوسفندی، پیاز"
-                    FoodPictureAddress="/Asset/Element/Avatar.png"
-                    FoodRate="4.56" Loaded="URestaurantFoodItemControl_Loaded"
-                    btnOrderClick="btnOrderClick"/>
+            <ListBox x:Name="lstFoodItems" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalContentAlignment="Stretch">
             </ListBox>
 
             <Button Click="btnBack" Margin="15" Height="40" Width="80" Background="#E349CE" VerticalAlignment="Center" HorizontalAlignment="Left">برگشت</Button>
