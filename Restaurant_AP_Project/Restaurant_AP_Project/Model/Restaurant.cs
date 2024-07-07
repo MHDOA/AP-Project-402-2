@@ -15,19 +15,19 @@ namespace Restaurant_AP_Project.Model
             Address = address;
             City = city;
             Rate = rate;
-            UserName = userName;
-            Pass = pass;
+            Username = userName;
+            Password = pass;
 
             if(foods != null)
-                Foods = foods;
+                Menu = foods;
             if(categories != null)
                 Categories = categories;
             if (comments != null)
-                Comments = comments;
+                ListComments = comments;
             if (orders != null)
-                Orders = orders;
+                ListOrdersHistory = orders;
             if (reserves != null)
-                Reserves = reserves;
+                ListReservesHistory = reserves;
 
             IsReserveService = isReserveService;
             IsDlivery = isDlivery;
@@ -39,16 +39,16 @@ namespace Restaurant_AP_Project.Model
         public string Address { get; set; }
         public string City { get; set; }
         public List<string> Categories { get; set; }
-        public List<Food> Foods { get; set; }
-        public List<Comment> Comments { get; set; }
-        public int Rate { get; set; }
-        public List<Order> Orders { get; set; }
-        public List<Reserve> Reserves { get; set; }
+        public List<Food> Menu { get; set; }
+        public List<Comment> ListComments { get; set; }
+        public double Rate { get; set; }
+        public List<Order> ListOrdersHistory { get; set; }
+        public List<Reserve> ListReservesHistory { get; set; }
         public bool IsReserveService { get; set; }
         public bool IsDlivery { get; set; }
         public bool IsDineIn { get; set; }
 
-        public string UserName { get; set; }
-        public string Pass {  get; set; }   
+        public string Username { get; set; }
+        public string Password {  get; set; }   
     }
 }
