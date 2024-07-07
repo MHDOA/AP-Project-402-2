@@ -6,13 +6,16 @@
              xmlns:local="clr-namespace:Restaurant_AP_Project.Control"
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="800">
-    <Border BorderBrush="LightGray" BorderThickness="1">
-        <Grid>
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock x:Name="txtCategory" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Margin="0 0 15 0"></TextBlock>
-                <Image Margin="10" Source="/Asset/Element/DefaultPicture.png" Width="50"/>
-            </StackPanel>
-        </Grid>
-    </Border>
+    <Grid x:Name="grdMain">
+        <Border BorderBrush="LightGray" BorderThickness="1">
+            <Grid>
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock x:Name="txtCategory" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" Margin="0 0 15 0"></TextBlock>
+                    <Image Margin="10" Source="/Asset/Element/DefaultPicture.png" Width="50"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+    
 
 </UserControl>
