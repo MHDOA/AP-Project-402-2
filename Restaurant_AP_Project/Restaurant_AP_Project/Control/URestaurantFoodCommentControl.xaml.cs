@@ -23,13 +23,12 @@ namespace Restaurant_AP_Project.Control
     /// </summary>
     public partial class URestaurantFoodCommentControl : UserControl
     {
-        public UserControl CommentAnswer
+        private string commentAnswer;
+
+        public string CommentAnswer
         {
-            set
-            {
-                grdAnswer.Children.Clear();
-                grdAnswer.Children.Add(value);
-            }
+            get { return commentAnswer; }
+            set { commentAnswer = value; }
         }
 
         public string Comment
@@ -58,7 +57,7 @@ namespace Restaurant_AP_Project.Control
             set { lblEdited.Visibility = value; }
         }
 
-        public float Rate
+        public double Rate
         {
             set { uinfoRate.BoxText = value.ToString("0.00"); }
         }
