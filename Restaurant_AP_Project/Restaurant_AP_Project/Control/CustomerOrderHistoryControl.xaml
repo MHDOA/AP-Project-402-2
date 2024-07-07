@@ -7,21 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1060" d:DesignWidth="1550">
     <Grid>
-        <ListBox HorizontalContentAlignment="Stretch">
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
-            <local:URestaurantOrderHistoryControl btnChangeRate="btn"/>
+        <ListBox HorizontalContentAlignment="Stretch" x:Name="lstOrders">
         </ListBox>
     </Grid>
 </UserControl>
